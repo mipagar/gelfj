@@ -321,4 +321,11 @@ public class GelfHandler
     public void setFacility(String facility) {
         this.facility = facility;
     }
+    
+    public void setAdditionalField(String entry) {
+        final int index = entry.indexOf( '=' );
+        if( -1 != index ) {
+            fields.put( entry.substring( 0, index ), entry.substring( index + 1 ) );
+        }        
+    }
 }
